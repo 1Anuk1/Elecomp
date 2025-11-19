@@ -1,0 +1,394 @@
+/* Importar una fuente moderna (opcional, pero recomendado) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+    --color-primario: #005f73; /* Azul oscuro para header/footer */
+    --color-secundario: #0a9396; /* Azul medio para acentos */
+    --color-acento: #94d2bd; /* Azul claro/verde azulado para hover y detalles */
+    --color-fondo: #f0f8ff; /* Un azul muy pálido o blanco hueso */
+    --color-tarjeta: #ffffff;
+    --color-texto: #333333;
+    --color-texto-claro: #ffffff;
+    --sombra-caja: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --borde-radio: 8px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav .logo a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 12px;
+    border-radius: var(--borde-radio);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* Considera añadir una clase 'active' con JS para la sección actual */
+    background-color: var(--color-secundario);
+    color: var(--color-texto-claro);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+section {
+    background-color: var(--color-tarjeta);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-caja);
+}
+
+h2 {
+    color: var(--color-primario);
+    margin-top: 0;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.lista-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.producto {
+    background-color: var(--color-fondo); /* Un fondo ligeramente diferente para las tarjetas */
+    border: 1px solid #e0e0e0;
+    border-radius: var(--borde-radio);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.producto img {
+    max-width: 100%;
+    height: 180px; /* Altura fija para imágenes */
+    object-fit: contain; /* 'contain' para que no se recorte, 'cover' si prefieres que llene */
+    margin-bottom: 1rem;
+    border-radius: calc(var(--borde-radio) - 4px); /* Radio interior */
+}
+
+.producto h3 {
+    font-size: 1.2em;
+    margin: 0.5rem 0;
+    color: var(--color-primario);
+}
+
+.producto .precio {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-secundario);
+    margin: 0.5rem 0 1rem 0;
+}
+
+button, .btn-ver-detalles, .btn-agregar-carrito {
+    background-color: var(--color-secundario);
+    color: var(--color-texto-claro);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--borde-radio);
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* Para que el text-align:center del padre funcione */
+    margin-top: auto; /* Empuja el botón hacia abajo en flex container */
+    margin-bottom: 10px;
+}
+
+button:hover, .btn-ver-detalles:hover, .btn-agregar-carrito:hover {
+    background-color: var(--color-primario);
+    transform: translateY(-2px);
+}
+
+#btn-pagar {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2em;
+}
+
+/* Estilos para el carrito */
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+.item-carrito:last-child {
+    border-bottom: none;
+}
+.item-carrito img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-right: 1rem;
+    border-radius: 4px;
+}
+.item-carrito-info {
+    flex-grow: 1;
+}
+.item-carrito-info h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1em;
+}
+.item-carrito-info p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+.item-carrito .btn-eliminar {
+    background-color: #e74c3c; /* Rojo para eliminar */
+    color: white;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8em;
+}
+.item-carrito .btn-eliminar:hover {
+    background-color: #c0392b;
+}
+
+/* Vista de detalle del producto */
+#detalle-producto-content img {
+    max-width: 300px;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-caja);
+}
+#detalle-producto-content .precio-detalle {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-secundario);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#detalle-producto-content .descripcion-detalle {
+    font-size: 1.1em;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+#btn-volver-catalogo {
+    background-color: #777;
+}
+#btn-volver-catalogo:hover {
+    background-color: #555;
+}
+
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+form label {
+    font-weight: 500;
+    margin-bottom: -0.5rem; /* Acercar label al input */
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: var(--borde-radio);
+    font-size: 1em;
+    width: 100%; /* Asegurar que ocupen el ancho disponible */
+    box-sizing: border-box; /* Para que padding no aumente el tamaño total */
+}
+form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+form button[type="submit"] {
+    align-self: flex-start; /* Alinear botón a la izquierda */
+}
+
+
+footer {
+    background-color: #333; /* Un gris oscuro para el footer */
+    color: #f4f4f4;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+/* Animación de producto seleccionado */
+.producto.seleccionado {
+    animation: productoSeleccionadoAnim 0.5s ease-out forwards;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 15px var(--color-acento);
+}
+
+@keyframes productoSeleccionadoAnim {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+    }
+    nav ul li {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+    nav ul li a {
+        display: block; /* Para que ocupen todo el ancho */
+        text-align: center;
+    }
+    .lista-productos {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Productos más pequeños en móvil */
+    }
+    .item-carrito {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .item-carrito img {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lista-productos {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    }
+    main {
+        padding: 0 10px;
+    }
+    section {
+        padding: 1.5rem;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    button, .btn-ver-detalles, .btn-agregar-carrito {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para el modal del ticket */
+#ticket-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+#ticket-modal {
+    background: #fff;
+    color: #222;
+    border-radius: 10px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+#ticket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+}
+#ticket-header h2 { margin: 0; }
+#ticket-close {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+#ticket-body { padding: 16px; }
+#ticket-pre { white-space: pre-wrap; font-family: monospace; }
+#ticket-actions { display: flex; gap: 8px; justify-content: flex-end; padding: 12px 16px; border-top: 1px solid #eee; }
+#ticket-actions button { padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+#ticket-download { background: var(--color-acento); border: none; color: #fff; }
+#ticket-ok { background: var(--color-secundario); border: none; color: #fff; }
