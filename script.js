@@ -62,70 +62,14 @@ function generateUniqueTicketCode() {
     return (Date.now().toString().slice(-8)).padStart(8, '0');
 }
 
-// Simulación de base de datos de productos
+// Simulación de base de datos de productos (solo los permitidos)
 let productos = [
     {
-        id: 1,
-        nombre: 'Laptop Gamer Pro',
-        precio: 21000,
-        imagen: 'https://ss628.liverpool.com.mx/xl/1157330647.jpg',
-        descripcion: 'Potente laptop para juegos con tarjeta gráfica dedicada.'
-    },
-    {
-        id: 2,
-        nombre: 'PC de Escritorio',
-        precio: 26000,
-        imagen: 'https://m.media-amazon.com/images/I/71mcUuRK1NL.jpg',
-        descripcion: 'Computadora de escritorio con procesador de última generación.'
-    },
-    {
-        id: 3,
-        nombre: 'Smartphone X12',
-        precio: 12000,
-        imagen: 'https://http2.mlstatic.com/D_694900-CBT77341940491_062024-O.jpg',
-        descripcion: 'Teléfono inteligente con cámara de alta resolución y gran pantalla.'
-    },
-    {
-        id: 4,
-        nombre: 'Smartwatch Fit+',
-        precio: 5000,
-        imagen: 'https://ss632.liverpool.com.mx/xl/1163997483.jpg',
-        descripcion: 'Reloj inteligente con monitor de actividad y notificaciones.'
-    },
-    {
-        id: 5,
-        nombre: 'Teclado Mecánico RGB',
-        precio: 1600,
-        imagen: 'https://pcreathors.mx/assets/uploads/sw_tecladorkr65_5.png?1732219968.png?text=Teclado+Mecanico',
-        descripcion: 'Teclado mecánico con retroiluminación RGB personalizable.'
-    },
-    {
-        id: 6,
-        nombre: 'Mouse Gamer Ergonómico',
-        precio: 900,
-        imagen: 'https://www.cyberpuerta.mx/img/product/M/CP-ACTECK-AC-933049-3ec735.jpg?text=Mouse+Gamer',
-        descripcion: 'Mouse para juegos con diseño ergonómico y DPI ajustable.'
-    },
-    {
-        id: 7,
-        nombre: 'Laptop HP 240 G104',
-        precio: 6900,
-        imagen: 'https://mx-media.hptiendaenlinea.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/A/L/AL2Q6LT-3_T1732731848.png',
-        descripcion: 'Procesador Intel Core i3 1315U, RAM de 8GB DDR4, SSD de 512GB, Windows 11 Home (64 bits)'
-    },
-    {
-        id: 8,
-        nombre: 'Laptop Leonovo IdeaPad Slim 3',
-        precio: 9200,
-        imagen: 'https://p3-ofp.static.pub/fes/cms/2022/12/28/lnfmv13jwu5nb0xzzmczeytk58lh6e366455.png',
-        descripcion: 'Procesador Intel Core i5 12450H, RAM 8GB LPDDR5, SSD de 512GB, Windows 11 Home (64 bits)'
-    },
-    {
-        id: 9,
-        nombre: 'Laptop DELL Inspiron 3520',
-        precio: 10000,
-        imagen: 'https://i5.walmartimages.com/asr/ea4ba78e-bf31-4e5e-b82e-dda9332b60c2.43280fa5f6ad2f0cc95193d85a188f57.jpeg?',
-        descripcion: 'Procesador Intel Core i5 1235U, RAM de 16GB DDR4, SSD de 512GB, Windows 11 Home (64 bits)'
+        id: 24,
+        nombre: 'Procesador AMD Ryzen 9 7950X3D',
+        precio: 12700,
+        imagen: 'https://media.mipc.com.mx/catalog/product/r/y/ryzen_7950x3d_1_1.png?',
+        descripcion: 'Frecuencia base de 4.2 GHz, Frecuencia turbo de 5.7 GHz, 16 Núcleos, Socket AM5, Cache de 128MB'
     },
     {
         id: 10,
@@ -135,102 +79,11 @@ let productos = [
         descripcion: 'Procesador AMD Ryzen 5 7530U, RAM de 8GB DDR4, SSD de 512GB, Windows 11 Home (64 bits)'
     },
     {
-        id: 11,
-        nombre: 'Laptop DELL Inspiron Business 3520',
-        precio: 14500,
-        imagen: 'https://cdn.homedepot.com.mx/productos/223679/223679-d.jpg',
-        descripcion: 'Procesador Intel Core i7 1255U, RAM de 16 GB DDR4, SSD de 512GB, Windows 11 Pro (64 bits)'
-    },
-    {
-        id: 12,
-        nombre: 'Laptop Lenovo V14 G3 IAP',
-        precio: 9200,
-        imagen: 'https://cdn.homedepot.com.mx/productos/223675/223675-d.jpg',
-        descripcion: 'Procesador Intel Core i3 1215U, RAM 16GB DDR4, SSD 1TB, Windows 11 Home (64 bits)'
-    },
-    {
-        id: 13,
-        nombre: 'Laptop Acer Aspire 3',
-        precio: 10000, 
-        imagen: 'https://m.media-amazon.com/images/I/61XW2LkG8KL._AC_UF894,1000_QL80_.jpg',
-        descripcion: 'Procesador AMD Ryzen 7 5700U, RAM de 32GB DDR4, SSD de 512GB, Windows 11 Home (64 bits)'
-    },
-    {
-        id: 14,
-        nombre: 'Smartphone Motorola Moto G24 Power',
-        precio: 2900,
-        imagen: 'https://i5.walmartimages.com.mx/gr/images/product-images/img_large/00084002325728L1.jpg?',
-        descripcion: 'Procesador Helio G85, RAM de 8GB, Almacenamiento de 256GB, Android 14'
-    },
-    {
-        id: 15,
-        nombre: 'Smartphone Xiaomi Redmi 14C',
-        precio: 2300,
-        imagen: 'https://i02.appmifile.com/731_item_mx/16/10/2024/5d584c744ba18c57182e94f2df77704f.png',
-        descripcion: 'Procesador Mediatek Helio G81 Ultra, RAM de 4GB. Almacenamiento de 256GB, Android 14'
-    },
-    {
-        id: 16,
-        nombre: 'Smartphone Xiaomi Redmi Note 14 Pro',
-        precio: 5200,
-        imagen: 'https://miphone.com.mx/wp-content/uploads/2024/10/pms_1727181058.3979197-1-300x300.png',
-        descripcion: 'Procesador Mediatek Gelio G100-Ultra, RAM de 8GB, Almacenamiento de 256GB, Android 14'
-    },
-    {
-        id: 17,
-        nombre: 'Smartphone Apple iPhone 16',
-        precio: 16300,
-        imagen: 'https://macstoreonline.com.mx/img/sku/IPHONE686_FZ.jpg',
-        descripcion: 'Procesador A18, Almacenamiento de 128GB, Pantalla Super Retina XDR de 6.1\", iOS'
-    },
-    {
         id: 18,
         nombre: 'Smartphone OPPO Reno10 5G',
         precio: 6250,
         imagen: 'https://www.oppo.com/content/dam/oppo/common/mkt/v2-2/reno10-5g-en/specs/reno10-5g-860_720.png',
         descripcion: 'Procesador Mediatek Dimensity 7050, RAM de 8GB, Almacenamiento de 256GB, Cámara Principal de 64MP, ColorOS 13.1 (Android 13)'
-    },
-    {
-        id: 19,
-        nombre: 'Apple Watch SE 2da Gen con GPS',
-        precio: 4500,
-        imagen: 'https://m.media-amazon.com/images/I/515vnLGLbYL._AC_UF894,1000_QL80_.jpg',
-        descripcion: 'Pantalla OLED, Cubierta de Aluminio, Bluetooth, Watch OS, Color Midnight'
-    },
-    {
-        id: 20,
-        nombre: 'Smartwatch Xiaomi 8 Pro, AMOLED de 1.74"',
-        precio: 1300,
-        imagen: 'https://coolboxmx.vtexassets.com/arquivos/ids/163910/Mi-Smart-Band-8-Pro-negro_1.jpg.jpg?',
-        descripcion: 'Bluetooth 5.3, Compatible con Android y iOS, Color negro'
-    },
-    {
-        id: 21,
-        nombre: 'SmartWatch Samsung Galaxy Watch 4 Classic',
-        precio: 3150,
-        imagen: 'https://cdn1.coppel.com/images/catalog/mkp/7463/7000/74636465-1.jpg',
-        descripcion: 'Pantalla de 1.4\", NFC, Bluetooth 5.0, Compatible con Android, Color Negro'
-    },
-    {
-        id: 22,
-        nombre: 'Tarjeta de Video Nvidia GeForce RTX 4060 GIGABYTE Eagle OC Edition',
-        precio: 8100,
-        imagen: 'https://m.media-amazon.com/images/I/71NfMdK5LgL.jpg',
-        descripcion: '8GB DDR6, PCI Express 4.0, 2x HDMI, 2x DisplayPort'
-    },
-    {
-        id: 23,
-        nombre: 'Unidad de Estado Solido ADATA Ultimate SU630 de 240GB, 2.5\" SATA III',
-        precio: 309,
-        imagen: 'https://m.media-amazon.com/images/I/71U28L7qyzL._AC_UF894,1000_QL80_DpWeblab_.jpg',
-        descripcion: 'Velocidad de lectura de 520 MB/s, Velocidad de escritura de 450MB/s, Tiempo entre fallos 1500000 h'
-    },
-    {
-        id: 24,
-        nombre: 'Procesador AMD Ryzen 9 7950X3D',
-        precio: 12700,
-        imagen: 'https://media.mipc.com.mx/catalog/product/r/y/ryzen_7950x3d_1_1.png?',
-        descripcion: 'Frecuencia base de 4.2 GHz, Frecuencia turbo de 5.7 GHz, 16 Núcleos del procesador, Socket AM5, Cache de 128MB'
     }
 ];
 
@@ -245,10 +98,7 @@ function agregarProducto(id, nombre, precio, imagen, descripcion) {
     console.log("Producto agregado correctamente.");
 }
 
-// Ejemplo de uso
-agregarProducto(8, 'Laptop Lenovo IdeaPad Slim 3', 9200, 'https://p3-ofp.static.pub/fes/cms/2022/12/28/lnfmv13jwu5nb0xzzmczeytk58lh6e366455.png', 'Procesador Intel Core i5 12450H, RAM 8GB LPDDR5, SSD de 512GB, Windows 11 Home (64 bits).');
-
-// Visualización de productos en consola
+// Visualización de productos in consola
 console.log(productos);
 
     let carrito = [];
@@ -630,8 +480,16 @@ console.log(productos);
             return;
         }
 
+        // Generar código único de 8 dígitos
+        const codigo = generateUniqueTicketCode();
+
+        const compradorNombre = usuarioActual ? usuarioActual.nombre : 'Invitado';
+        const compradorEmail = usuarioActual ? usuarioActual.email : 'N/A';
+
         let ticketContent = '============= TICKET DE COMPRA =============\n';
-        ticketContent += `Tienda: EleComp\n`; // Nombre de la tienda actualizado
+        ticketContent += `Código: ${codigo}\n`;
+        ticketContent += `Tienda: EleComp\n`;
+        ticketContent += `Comprador: ${compradorNombre} (${compradorEmail})\n`;
         ticketContent += `Fecha: ${new Date().toLocaleString()}\n`;
         ticketContent += '--------------------------------------------\n';
         ticketContent += 'Productos:\n';
@@ -640,13 +498,104 @@ console.log(productos);
         });
         ticketContent += '--------------------------------------------\n';
         const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0).toFixed(2);
-        ticketContent += `Total: $${total}\n`;
+        ticketContent += `TOTAL: $${total}\n`;
         ticketContent += '============================================\n';
+        ticketContent += '¡Gracias por su compra en EleComp!\n';
 
-        // Simular guardado de ticket en un archivo .txt
-        descargarComoTXT(ticketContent, 'ticket_compra.txt');
-        // console.log(ticketContent); // Para depuración, se puede mantener o quitar
-        // alert('Ticket generado y mostrado en la consola (simulación de guardado en ticket.txt).');
+        // Guardar el código en el historial local (para mantener unicidad futura)
+        ticketCodes.push({ code: codigo, fecha: new Date().toISOString(), comprador: compradorEmail, total: parseFloat(total) });
+        saveTicketCodesToStorage(ticketCodes);
+
+        console.log('--- Contenido del Ticket ---');
+        console.log(ticketContent);
+
+        // Intentar leer datos de facturación (si el usuario marcó la casilla y el formulario existe)
+        const chkFact = document.getElementById('facturacion-checkbox');
+        const tieneFacturacion = chkFact ? chkFact.checked : false;
+        let facturaContent = null;
+        if (tieneFacturacion) {
+            const nombreFact = (document.getElementById('fact-nombre') || {}).value || '';
+            const rfcFact = (document.getElementById('fact-rfc') || {}).value || '';
+            const cpFact = (document.getElementById('fact-cp') || {}).value || '';
+            const domFact = (document.getElementById('fact-domicilio') || {}).value || '';
+            const usoFact = (document.getElementById('fact-uso') || {}).value || '';
+
+            // Construir contenido básico de factura (texto plano). Validaciones mínimas: nombre y RFC opcionales
+            facturaContent = '============= FACTURA =============\n';
+            facturaContent += `Código de factura: ${codigo}\n`;
+            facturaContent += `Fecha: ${new Date().toLocaleString()}\n`;
+            facturaContent += `Razón social / Nombre: ${nombreFact || compradorNombre}\n`;
+            facturaContent += `RFC: ${rfcFact || 'N/A'}\n`;
+            facturaContent += `Código postal: ${cpFact || 'N/A'}\n`;
+            facturaContent += `Domicilio fiscal: ${domFact || 'N/A'}\n`;
+            facturaContent += `Uso de CFDI: ${usoFact || 'N/A'}\n`;
+            facturaContent += '-----------------------------------\n';
+            facturaContent += 'Productos facturados:\n';
+            carrito.forEach(item => {
+                facturaContent += `- ${item.nombre} (x${item.cantidad}) - $${(item.precio * item.cantidad).toFixed(2)}\n`;
+            });
+            facturaContent += '-----------------------------------\n';
+            facturaContent += `TOTAL: $${total}\n`;
+            facturaContent += '===================================\n';
+        }
+
+        // Crear modal con el ticket (y factura si aplica)
+        const existing = document.getElementById('ticket-overlay');
+        if (existing) existing.remove();
+
+        const overlay = document.createElement('div');
+        overlay.id = 'ticket-overlay';
+        overlay.innerHTML = `
+            <div id="ticket-modal">
+                <div id="ticket-header">
+                    <div>
+                        <h2>Ticket de Compra</h2>
+                        <div style="font-size:0.95em;color:#555">Código: <strong>${codigo}</strong></div>
+                    </div>
+                    <button id="ticket-close" aria-label="Cerrar">✕</button>
+                </div>
+                <div id="ticket-body">
+                    <pre id="ticket-pre">${ticketContent}</pre>
+                    ${facturaContent ? ('<hr><pre id="factura-pre">' + facturaContent + '</pre>') : ''}
+                </div>
+                <div id="ticket-actions">
+                    <button id="ticket-download">Descargar Ticket (.txt)</button>
+                    ${facturaContent ? ('<button id="factura-download">Descargar Factura (.txt)</button>') : ''}
+                    <button id="ticket-ok">Aceptar</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        // Descargar con nombre que incluye el código
+        const btnDownload = document.getElementById('ticket-download');
+        btnDownload.addEventListener('click', () => {
+            descargarComoTXT(ticketContent, `ticket_${codigo}.txt`);
+        });
+
+        // Si existe factura, enlazar descarga también
+        if (facturaContent) {
+            const btnFact = document.getElementById('factura-download');
+            if (btnFact) {
+                btnFact.addEventListener('click', () => {
+                    descargarComoTXT(facturaContent, `factura_${codigo}.txt`);
+                });
+            }
+        }
+
+        // Cerrar
+        const cerrar = () => {
+            const el = document.getElementById('ticket-overlay');
+            if (el) el.remove();
+        };
+        document.getElementById('ticket-close').addEventListener('click', cerrar);
+        document.getElementById('ticket-ok').addEventListener('click', cerrar);
+
+        // Cerrar al hacer click fuera del modal
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) cerrar();
+        });
     }
 
     // Simulación de formularios de cuenta y admin (solo para mostrar/ocultar)
@@ -882,7 +831,6 @@ function generarTicketCompra() {
         ticketContent += `- ${item.nombre} (x${item.cantidad}) - $${(item.precio * item.cantidad).toFixed(2)}\n`;
     });
     ticketContent += '--------------------------------------------\n';
-
     const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0).toFixed(2);
     ticketContent += `TOTAL: $${total}\n`;
     ticketContent += '============================================\n';
